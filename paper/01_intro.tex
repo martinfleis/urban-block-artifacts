@@ -1,21 +1,38 @@
 \section{Introduction}
 \label{sec:intro}
 
-\subsection{why do we care?}
+- Importance of street networks for urban analysis
+    - talk about availability of data, different use cases from transport to morphology
+    to ...
+    - try to illustrate the wide applicability so we can then base the claims about the
+    importance of the issue on top of it
+    - general motivation - framework of urban data science. why everyone would
+    benefit from having this issue solved. cite arcaute on 'recent advances, lobo on 'urban
+    science'. also: alessandretti 2020, louail 2015, barthelemy books (morphogenesis 2018;
+    spatial networks 2022)
+- Data need to look different for transport than for morphology ans why it matters
+    - Networks vs polygons enclosed by networks (blocks? negative space? we need to pin down the
+    terminology we want to use)
+- Problem description
+    - Each network comes with a different detail and generated "blocks" are not always
+    what they seem to be but sometimes are an artifact of transport-focused geometry
+    - cite cardillo, geisberger, morer (computational costs), maybe venerandi 2016?;
+    vanegas paper on actually *simulating* these spaces
+- Examples - other authors complaining about the issue, without having solved
+it yet (e.g. best paper ever \cite{vybornova2022automated}); grippa 2018; peponis 2007
+merges these into urban blocks (replacing by center lines)
+    - include morphometric literature here - mention `momepy.Blocks` algorithm that
+    attemps to go around the issue in a specific way (but does not solve it)
+        - (fleischmann, porta, dibble, etc.) diet 2018 on planar map
+        classification. sharifi on urban forms.
+    - description/terminology: cf. hermosilla 2014 'UBRSA'; see strano 2012 for power
+    law of "land cells" (spaces surrounded by street segments); most recent: shpuza 2011,
+    2017, 2022 (how to get the PDF...). circular compactness - inspired by louf; see also
+    more recent barthelemy 2017 with the same figures;
+-  summary of what happens in this paper
+    - 'towards an automated detection of
+    bananas'; method inspired by louf and barthelemy; tried out on 150 cities across the
+    world
 
-1 paragraph general motivation - framework of urban data science. why everyone would benefit from having this issue solved. cite arcaute on 'recent advances, lobo on 'urban science'. also: alessandretti 2020, louail 2015, barthelemy books (morphogenesis 2018; spatial networks 2022)
-
-2-3 sentences morphometrics (fleischmann, porta, dibble, etc.) diet 2018 on planar map classification. sharifi on urban forms.
-
-1 paragraph problem description - cite cardillo, geisberger, morer (computational costs), maybe venerandi 2016?; vanegas paper on actually *simulating* these spaces
-
-1 paragraph examples - other authors complaining about the issue, without having solved it yet (e.g. best paper ever \cite{vybornova2022automated}); grippa 2018; peponis 2007 merges these into urban blocks (replacing by center lines)
-
-1 paragraph summary of what happens in this paper - 'towards an automated detection of bananas';
-method inspired by louf and barthelemy;
-tried out on X cities across the world,
-from different morphological classes (cite fleischmann);
-2 sentences about using OSM as data source, and OSMnx/geopandas/momepy (...) for processing;
-code is open source (?) ;
-
-Adding some text here.
+% 2 sentences about using OSM as data source, and OSMnx/geopandas/momepy (...) for
+% processing; code is open source(?) ; - I WOULD KEEP THIS FOR METHODS
