@@ -34,5 +34,49 @@ merges these into urban blocks (replacing by center lines)
     bananas'; method inspired by louf and barthelemy; tried out on 150 cities across the
     world
 
-% 2 sentences about using OSM as data source, and OSMnx/geopandas/momepy (...) for
-% processing; code is open source(?) ; - I WOULD KEEP THIS FOR METHODS
+
+\bigskip
+
+INTRODUCTION OF THE INTRODUCTION
+    
+Many studies within urban science use the street network of a city as primary input. Recent examples are numerous and cover a wide range of applications: from transportation network design [cite: Farahani 2013] to the classification of urban morphology [cite: Fleischmann 2021]. The feasibility and broad applicability of quantitative urban science studies has greatly increased with open source GIS data becoming available on platforms like OpenStreetMap [cite: Arcaute 2021]. 
+    
+However, even when a data set of sufficient quality is available, the conversion of geospatial features into a street network, sometimes referred to as ``network simplification’’, still poses several unresolved methodological questions to the research community. The challenge, in a nutshell, is to reduce granularity of detail without loss of relevant information; in many cases, deciding which information to keep and which to aggregate is easy for a human, but challenging for an algorithm (see Figure 1 [ref]). This is true both for studies that are concerned with the street network itself, and for studies that look at the polygons enclosed by the street network. Further complexity is added by the fact that the requirements towards the input network vary greatly depending on the use case. For example, traffic routing applications require adequately represented directionality of edges (street segments), while urban morphology studies are based on the shape of the polygons between the edges [cite]. 
+    
+In this article, we work towards resolving one specific issue within the features-to-network conversion process, which arises from a transportation-focused encoding of urban networks and which we call ``bananas’’. In the next sections, we define the problem and formulate our research question, followed by a literature and terminology review. We then briefly describe the methodology and our workflow that we apply to 150 cities across the globe, and present on overview of our results. The fully documented workflow, all input data and all results are made available in open source format on github [link]. We conclude with a discussion of implications and potential further steps.
+    
+    
+PROBLEM DESCRIPTION
+
+
+Each geospatially encoded street network comes with a certain level of granularity. A closer look at the polygons enclosed by the edges (street segments) of a given network often reveals artifacts of transport-focused geometry. An illustration is found in Figure 1 [ref]. 
+    
+[Description of Figure 1: A close-up look at [city, location]. The black lines are network edges (street segments). Grey polygons are ``true urban blocks’’; the red polygon is a ``banana’’.]
+
+Unlike its grey-colored neighbors, the polygon colored in red is not an urban block enclosed by streets; rather, it appears in the network due to the representation of a bidirectional street as two separate edges, one in each direction of traffic flow. The ``banana’’ in Figure 1 [ref] poses a twofold problem. First, for studies concerned with urban form, it introduces a false signal into the distribution of urban shapes and distorts the actual shape of its neighboring polygons. Second, for any study that is concerned with the street pattern rather than with routing, the ``banana’’ introduces a superfluous network edge, and it does so in a frequently inconsistent matter – not for all, but only some bidirectional and/or multilane streets. The extent to which ``banana’’ artifacts distort results depends on the analysis conducted, and cannot be quantified without prior ``banana’’ identification. Thus, no matter whether one is interested in the network or in shapes enclosed by the network, the ``banana’’ should simply not be there, but rather be replaced by a single network edge. Human manual processing would be unambiguous, but prohibitively costly. We therefore pose the following research question:
+
+RESEARCH QUESTION
+How can ``bananas’’ in an urban street network be computationally identified?
+
+LITERATURE REVIEW AND TERMINOLOGY
+
+DISCALIMER: One of the present challenges of ``bananas’’ is the lack of a coherent terminology of the problem description, which makes it substantially more difficult to conduct a comprehensive literature review on the topic. We therefore apologize for any involuntary omissions of previous work on ``bananas’’, and hope to contribute to a future homogenization of the problem discussion.
+
+
+REVIEW: Chronological review of problem description:
+
+Peponis (2007) [cite] conduct an analysis of urban spatial profiles and point out that their input data includes street center lines, but lacks street widths, hence street surfaces are merged into urban blocks. In a related, but methodologically different approach, Hermosilla et al. (2014) [cite] develop a method to derive so-called urban block related street areas (abbreviated by the authors as UBRSA), defined as the street area surrounding an urban block. This method, however, requires urban block boundaries as input.
+
+Grippa et al. (2018) [cite] classify polygons derived from OpenStreetMap street network data into ``urban blocks’’ and ``sliver polygons’’ and present a semiautomated workflow, partially in PostGIS, for sliver polygon removal from the data set. Ludwig et al. (2021) take up this approach within the context of land use classification, but additionally filter out all polygons based only on a size threshold.
+
+
+Shpuza 2022: [to be read]
+
+
+Vybornova et al 2022. refer to ``bananas’’ as ``parallel edges’’ and present a network shortest path-based approach for their identification, but no solution to effectively remove these from the network.
+
+
+A NOTE ON TERMINOLOGY:
+
+
+Some recent studies describe the ``banana’’ phenomenon in terms of sliver polygons ([cite: Grippa 2018, Sanzana 2019, Ludwig 2021]). However, ``bananas’’ arise as consequence of a context-dependent redundancy of mapped line features, while sliver polygons stem from mismatching boundaries in overlays of polygon features ([cite Goodchild 1978, Rybaczuk 1993, Delafontaine 2009]). In addition, ``bananas’’ are, in line with our problem definition, confined to the specific context of urban street networks. Therefore, in spite of some degree of geometric similarity between the two, we refrain from applying the term ``sliver polygon’’ in the ``bananas’’ context.
