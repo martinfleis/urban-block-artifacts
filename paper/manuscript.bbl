@@ -25,6 +25,14 @@
   46}, 4 (May 2019), 707--730.
 \newblock 10.1177/2399808317725075.
 
+\bibitem{fan_polygon-based_2016}
+{\sc Fan, H., Yang, B., Zipf, A., and Rousell, A.}
+\newblock A polygon-based approach for matching {OpenStreetMap} road networks
+  with regional transit authority data.
+\newblock {\em International Journal of Geographical Information Science 30}, 4
+  (Apr. 2016), 748--764.
+\newblock 10.1080/13658816.2015.1100732.
+
 \bibitem{farahani_review_2013}
 {\sc Farahani, R.~Z., Miandoabchi, E., Szeto, W.~Y., and Rashidi, H.}
 \newblock A review of urban transportation network design problems.
@@ -56,12 +64,28 @@
 \newblock Number: 7 Publisher: Multidisciplinary Digital Publishing Institute.
 
 \bibitem{hermosilla_using_2014}
-{\sc Hermosilla, T., Palomar-Vázquez, J., Balaguer-Beser, �., Balsa-Barreiro,
+{\sc Hermosilla, T., Palomar-Vazquez, J., Balaguer-Beser, A., Balsa-Barreiro,
   J., and Ruiz, L.~A.}
 \newblock Using street based metrics to characterize urban typologies.
 \newblock {\em Computers, Environment and Urban Systems 44\/} (Mar. 2014),
   68--79.
 \newblock 10.1016/j.compenvurbsys.2013.12.002.
+
+\bibitem{li_polygon-based_2014}
+{\sc Li, Q., Fan, H., Luan, X., Yang, B., and Liu, L.}
+\newblock Polygon-based approach for extracting multilane roads from
+  {OpenStreetMap} urban road networks.
+\newblock {\em International Journal of Geographical Information Science 28},
+  11 (Nov. 2014), 2200--2219.
+\newblock 10.1080/13658816.2014.915401.
+
+\bibitem{louf_typology_2014}
+{\sc Louf, R., and Barthelemy, M.}
+\newblock A typology of street patterns.
+\newblock {\em Journal of The Royal Society Interface 11}, 101 (Dec. 2014),
+  20140924.
+\newblock 10.1098/rsif.2014.0924.
+\newblock Publisher: Royal Society.
 
 \bibitem{ludwig_mapping_2021}
 {\sc Ludwig, C., Hecht, R., Lautenbach, S., Schorcht, M., and Zipf, A.}
@@ -76,7 +100,9 @@
 \newblock Measuring the {Configuration} of {Street} {Networks}: {The} {Spatial}
   {Profiles} of 118 {Urban} {Areas} in the 12 {Most} {Populated} {Metropolitan}
   {Regions} in the {US}.
-\newblock 17.
+\newblock In {\em Proceedings of the 6th {International} {Space} {Syntax}
+  {Symposium}\/} (Istanbul, Turkey, 2007), Istanbul Technical University,
+  p.~17.
 
 \bibitem{fischer_using_1993}
 {\sc Rybaczuk, K.}
@@ -84,7 +110,6 @@
 \newblock In {\em Geographic {Information} {Systems}, {Spatial} {Modelling} and
   {Policy} {Evaluation}}, M.~M. Fischer and P.~Nijkamp, Eds. Springer Berlin
   Heidelberg, Berlin, Heidelberg, 1993, pp.~85--102.
-\newblock 10.1007/978-3-642-77500-0_6.
 
 \bibitem{sanzana_decomposition_2018}
 {\sc Sanzana, P., Gironás, J., Braud, I., Hitschfeld, N., Branger, F.,
@@ -111,10 +136,10 @@
 \newblock \_eprint:
   https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.2517-6161.1981.tb01155.x.
 
-\bibitem{vybornova_automated_nodate}
+\bibitem{vybornova_automated_2022}
 {\sc Vybornova, A., Cunha, T., Gühnemann, A., and Szell, M.}
 \newblock Automated {Detection} of {Missing} {Links} in {Bicycle} {Networks}.
-\newblock {\em Geographical Analysis n/a}, n/a.
+\newblock {\em Geographical Analysis n/a}, n/a (2022).
 \newblock 10.1111/gean.12324.
 \newblock \_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/gean.12324.
 
