@@ -1,0 +1,121 @@
+\begin{thebibliography}{10}
+
+\bibitem{arcaute_recent_2021}
+{\sc Arcaute, E., and Ramasco, J.~J.}
+\newblock Some recent advances in urban system science: models and data, Dec.
+  2021.
+\newblock Number: arXiv:2110.15865 arXiv:2110.15865 [physics].
+
+\bibitem{delafontaine_assessment_2009}
+{\sc Delafontaine, M., Nolf, G., van~de Weghe, N., Antrop, M., and de~Maeyer,
+  P.}
+\newblock Assessment of sliver polygons in geographical vector data.
+\newblock {\em International Journal of Geographical Information Science 23}, 6
+  (June 2009), 719--735.
+\newblock 10.1080/13658810701694838.
+\newblock Publisher: Taylor \& Francis \_eprint:
+  https://doi.org/10.1080/13658810701694838.
+
+\bibitem{dibble_origin_2019}
+{\sc Dibble, J., Prelorendjos, A., Romice, O., Zanella, M., Strano, E., Pagel,
+  M., and Porta, S.}
+\newblock On the origin of spaces: {Morphometric} foundations of urban form
+  evolution.
+\newblock {\em Environment and Planning B: Urban Analytics and City Science
+  46}, 4 (May 2019), 707--730.
+\newblock 10.1177/2399808317725075.
+
+\bibitem{farahani_review_2013}
+{\sc Farahani, R.~Z., Miandoabchi, E., Szeto, W.~Y., and Rashidi, H.}
+\newblock A review of urban transportation network design problems.
+\newblock {\em European Journal of Operational Research 229}, 2 (Sept. 2013),
+  281--302.
+\newblock 10.1016/j.ejor.2013.01.001.
+
+\bibitem{fleischmann_methodological_2021}
+{\sc Fleischmann, M., Feliciotti, A., Romice, O., and Porta, S.}
+\newblock Methodological foundation of a numerical taxonomy of urban form.
+\newblock {\em Environment and Planning B: Urban Analytics and City Science\/}
+  (Dec. 2021), 239980832110598.
+\newblock 10.1177/23998083211059835.
+
+\bibitem{goodchild_statistical_1978}
+{\sc Goodchild, M.~F.}
+\newblock Statistical aspects of the polygon overlay problem.
+\newblock {\em Harvard papers on geographic information systems\/} (1978).
+\newblock Publisher: Addison-Wesley.
+
+\bibitem{grippa_mapping_2018}
+{\sc Grippa, T., Georganos, S., Zarougui, S., Bognounou, P., Diboulo, E.,
+  Forget, Y., Lennert, M., Vanhuysse, S., Mboga, N., and Wolff, E.}
+\newblock Mapping {Urban} {Land} {Use} at {Street} {Block} {Level} {Using}
+  {OpenStreetMap}, {Remote} {Sensing} {Data}, and {Spatial} {Metrics}.
+\newblock {\em ISPRS International Journal of Geo-Information 7}, 7 (July
+  2018), 246.
+\newblock 10.3390/ijgi7070246.
+\newblock Number: 7 Publisher: Multidisciplinary Digital Publishing Institute.
+
+\bibitem{hermosilla_using_2014}
+{\sc Hermosilla, T., Palomar-Vázquez, J., Balaguer-Beser, �., Balsa-Barreiro,
+  J., and Ruiz, L.~A.}
+\newblock Using street based metrics to characterize urban typologies.
+\newblock {\em Computers, Environment and Urban Systems 44\/} (Mar. 2014),
+  68--79.
+\newblock 10.1016/j.compenvurbsys.2013.12.002.
+
+\bibitem{ludwig_mapping_2021}
+{\sc Ludwig, C., Hecht, R., Lautenbach, S., Schorcht, M., and Zipf, A.}
+\newblock Mapping {Public} {Urban} {Green} {Spaces} {Based} on {OpenStreetMap}
+  and {Sentinel}-2 {Imagery} {Using} {Belief} {Functions}.
+\newblock {\em ISPRS International Journal of Geo-Information 10}, 4 (Apr.
+  2021), 251.
+\newblock 10.3390/ijgi10040251.
+
+\bibitem{peponis_measuring_2007}
+{\sc Peponis, J., Allen, D., Haynie, D., Scoppa, M., and Zhang, Z.}
+\newblock Measuring the {Configuration} of {Street} {Networks}: {The} {Spatial}
+  {Profiles} of 118 {Urban} {Areas} in the 12 {Most} {Populated} {Metropolitan}
+  {Regions} in the {US}.
+\newblock 17.
+
+\bibitem{fischer_using_1993}
+{\sc Rybaczuk, K.}
+\newblock Using information based rules for sliver polygon removal in {GISs}.
+\newblock In {\em Geographic {Information} {Systems}, {Spatial} {Modelling} and
+  {Policy} {Evaluation}}, M.~M. Fischer and P.~Nijkamp, Eds. Springer Berlin
+  Heidelberg, Berlin, Heidelberg, 1993, pp.~85--102.
+\newblock 10.1007/978-3-642-77500-0_6.
+
+\bibitem{sanzana_decomposition_2018}
+{\sc Sanzana, P., Gironás, J., Braud, I., Hitschfeld, N., Branger, F.,
+  Rodriguez, F., Fuamba, M., Romero, J., Vargas, X., Muñoz, J.~F., Vicuña,
+  S., and Mejía, A.}
+\newblock Decomposition of {2D} polygons and its effect in hydrological models.
+\newblock {\em Journal of Hydroinformatics 21}, 1 (Sept. 2018), 104--122.
+\newblock 10.2166/hydro.2018.031.
+
+\bibitem{shpuza_shape_2022}
+{\sc Shpuza, E.}
+\newblock The shape and size of urban blocks.
+\newblock {\em Environment and Planning B: Urban Analytics and City Science\/}
+  (May 2022), 239980832210987.
+\newblock 10.1177/23998083221098744.
+
+\bibitem{silverman_using_1981}
+{\sc Silverman, B.~W.}
+\newblock Using {Kernel} {Density} {Estimates} to {Investigate}
+  {Multimodality}.
+\newblock {\em Journal of the Royal Statistical Society: Series B
+  (Methodological) 43}, 1 (1981), 97--99.
+\newblock 10.1111/j.2517-6161.1981.tb01155.x.
+\newblock \_eprint:
+  https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.2517-6161.1981.tb01155.x.
+
+\bibitem{vybornova_automated_nodate}
+{\sc Vybornova, A., Cunha, T., Gühnemann, A., and Szell, M.}
+\newblock Automated {Detection} of {Missing} {Links} in {Bicycle} {Networks}.
+\newblock {\em Geographical Analysis n/a}, n/a.
+\newblock 10.1111/gean.12324.
+\newblock \_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/gean.12324.
+
+\end{thebibliography}
