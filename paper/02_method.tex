@@ -40,9 +40,46 @@ mention Sanzana \cite{sanzana_decomposition_2018}, Louf \cite{louf_typology_2014
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/308}
-    \caption{[Above: just a placeholder. Insert here: shape index frequency distribution(s) for FUA X. - show the two-peak pattern]}
+%    \caption{[Shape index frequency distributions of face polygons for different continents. }
     \label{fig:si-dist}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/800}
+        \caption[]%
+        {{\small Cochabamba, Bolivia}}    
+        \label{fig:kde-cochabamba}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}  
+        \centering 
+        \includegraphics[width=\textwidth]{figures/15}
+        \caption[]%
+        {{\small Sofia, Bulgaria}}    
+        \label{fig:2}
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}[b]{0.475\textwidth}   
+        \centering 
+        \includegraphics[width=\textwidth]{figures/448}
+        \caption[]%
+        {{\small Niamey, Niger}}    
+        \label{fig:kde-niamey}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}   
+        \centering 
+        \includegraphics[width=\textwidth]{figures/789}
+        \caption[]%
+        {{\small Adelaide, Australia}}    
+        \label{fig:kde-adelaide}
+    \end{subfigure}
+    \caption[]
+    {\small Shape index frequency distributions of face polygons for different continents.} 
+    \label{fig:4}
 \end{figure}
 
 Many, though not all, shape index frequency distributions for the analyzed FUAs reveal a common feature of two prominent peaks (see Figure \ref{fig:si-dist}). Through visual analysis, we find that these peaks represent two different types of polygons. Most of the polygons from the first (leftmost) peak can be attributed to ``bananas’’ in the street network, whereas most of the polygons from the second (rightmost) peak represent true urban blocks. Therefore, for FUAs that show a pronounced two-peak pattern in their shape index frequency distribution, the minimum \textit{between} the two peaks can be used as shape index threshold: polygons with a shape index below the threshold will most likely be ``bananas’’; polygons with a shape index above the threshold will most likely be true urban blocks. To derive the minimum, we approximate the shape index frequency distribution with a Gaussian kernel density estimation. For bandwidth selection, we use the parametric Silverman method \cite{silverman_using_1981} and find that it gives satisfactory results; non-parametric bandwidth selection methods might be a subject for future work (see section \ref{sec:discussion}). 
