@@ -3,46 +3,90 @@
 
 % COMMENTED OUT - NOTES:
 % - Importance of street networks for urban analysis
-%     - talk about availability of data, different use cases from transport to morphology
-%     to ...
-%     - try to illustrate the wide applicability so we can then base the claims about the
-%     importance of the issue on top of it
-%     - general motivation - framework of urban data science. why everyone would
-%     benefit from having this issue solved. cite arcaute on 'recent advances, lobo on 'urban
-%     science'. also: alessandretti 2020, louail 2015, barthelemy books (morphogenesis 2018;
-%     spatial networks 2022)
+%     - talk about availability of data, different use cases from transport to
+%       morphology to ...
+%     - try to illustrate the wide applicability so we can then base the claims about
+%       the importance of the issue on top of it
+%     - general motivation - framework of urban data science. why everyone would benefit
+%       from having this issue solved. cite arcaute on 'recent advances, lobo on 'urban
+%       science'. also: alessandretti 2020, louail 2015, barthelemy books (morphogenesis
+%       2018; spatial networks 2022)
 % - Data need to look different for transport than for morphology ans why it matters
-%     - Networks vs polygons enclosed by networks (blocks? negative space? we need to pin down the
-%     terminology we want to use)
+%     - Networks vs polygons enclosed by networks (blocks? negative space? we need to
+%       pin down the terminology we want to use)
 % - Problem description
 %     - Each network comes with a different detail and generated "blocks" are not always
-%     what they seem to be but sometimes are an artifact of transport-focused geometry
+%       what they seem to be but sometimes are an artifact of transport-focused geometry
 %     - cite cardillo, geisberger, morer (computational costs), maybe venerandi 2016?;
-%     vanegas paper on actually *simulating* these spaces
-% - Examples - other authors complaining about the issue, without having solved
-% it yet (e.g. vybornova 2022; grippa 2018; peponis 2007
-% merges these into urban blocks (replacing by center lines)
+%       vanegas paper on actually *simulating* these spaces
+% - Examples - other authors complaining about the issue, without having solved it yet
+%   (e.g. vybornova 2022; grippa 2018; peponis 2007 merges these into urban blocks
+%   (replacing by center lines)
 %     - include morphometric literature here - mention `momepy.Blocks` algorithm that
-%     attemps to go around the issue in a specific way (but does not solve it)
-%         - (fleischmann, porta, dibble, etc.) diet 2018 on planar map
-%         classification. sharifi on urban forms.
+%       attemps to go around the issue in a specific way (but does not solve it)
+%         - (fleischmann, porta, dibble, etc.) diet 2018 on planar map classification.
+%           sharifi on urban forms.
 %     - description/terminology: cf. hermosilla 2014 'UBRSA'; see strano 2012 for power
-%     law of "land cells" (spaces surrounded by street segments); most recent: shpuza 2011,
-%     2017, 2022 (how to get the PDF...). circular compactness - inspired by louf; see also
-%     more recent barthelemy 2017 with the same figures;
+%       law of "land cells" (spaces surrounded by street segments); most recent: shpuza
+%       2011, 2017, 2022 (how to get the PDF...). circular compactness - inspired by
+%       louf; see also more recent barthelemy 2017 with the same figures;
 % -  summary of what happens in this paper
-%     - 'towards an automated detection of
-%     bananas'; method inspired by louf and barthelemy; tried out on 150 cities across the
-%     world
+%     - 'towards an automated detection of bananas'; method inspired by louf and
+%       barthelemy; tried out on 150 cities across the world
 
-Many studies within urban science use the street network of a city as primary input. Recent examples are numerous and cover a wide range of applications: from transportation network design \cite{farahani_review_2013} to the classification of urban morphology \cite{fleischmann_methodological_2021}. The feasibility and broad applicability of quantitative urban science studies has greatly increased with open source GIS data becoming available on platforms like OpenStreetMap \cite{arcaute_recent_2021}. 
-    
-However, even when a data set of sufficient quality is available, the conversion of geospatial features into a street network, sometimes referred to as ``network simplification'', still poses several unresolved methodological questions to the research community. The challenge, in a nutshell, is to reduce granularity of detail without loss of relevant information. In many cases, deciding which information to keep and which to aggregate is easy for a human, but challenging for an algorithm (see Figure \ref{fig:01}). This is true both for studies that are concerned with the street network itself, and for studies that look at the polygons enclosed by the street network. Further complexity is added by the fact that the requirements towards the input network vary greatly depending on the use case. For example, traffic routing applications require adequately represented directionality of edges (street segments), while urban morphology studies are based on the shape of urban blocks, i.e., the polygons between the edges \cite{dibble_origin_2019}. 
-    
-In this article, we work towards resolving one specific issue within the features-to-network/features-to-blocks conversion process, which arises from a transportation-focused mapping of urban space and which we call ``bananas’’. The paper is organized as follows: In the next sections, we define the problem and formulate our research question, followed by a literature and terminology review. We then briefly describe the methodology and our workflow that we apply to X cities across the globe, and present an overview of our results. The fully documented workflow, all input data and all results are made available in open source format on GitHub: \href{https://github.com/martinfleis/bananas}{github.com/martinfleis/bananas}. We conclude with a discussion of implications and potential further steps. 
+Science has been looking at cities, their dynamics, population and spatial structure and
+other relevant aspects of their existence for thousands of years
+\cite{rowland2001vitruvius}. Within the last 50 years, powered by the emergence of data
+capturing cities from various perspectives, one type of data reflecting the underlying
+structure of each place has been in the forefront - a street network. Street networks
+are line-based abstractions of the street space and especially connectivity between
+different intersections and street segment that are popular due to their simplicity (it
+is much easier to digitize them compared to buildings, for example) and explanatory
+power. Their application is wide, from transportation network design
+\cite{farahani_review_2013}, assessment of urban sprawl \cite{barrington2020global} or
+evolution and distribution of street patterns \cite{boeing2018Multiscale; boeing2020off}
+to the classification of urban form \cite{araldi2019Street;
+fleischmann_methodological_2021} and properties of individual nodes and segments in
+relation to the rest of the network \cite{portaNetworkAnalysisUrban2006}. At the same
+time, the feasibility and broad applicability of usage of street networks has greatly
+increased with open source GIS data becoming available on platforms like OpenStreetMap
+\cite{arcaute_recent_2021}.
+
+However, not every dataset reflecting street network is the same and can be used for the
+same applications. For example, traffic routing applications require adequately
+represented directionality of edges (street segments), while urban morphology studies
+are based on the shape of urban blocks, i.e., the polygons between the edges
+\cite{dibble_origin_2019}. When requiring the latter, the conversion of geospatial
+features into a morphological street network, sometimes referred to as ``network
+simplification'', still poses several unresolved methodological questions to the
+research community. The challenge, in a nutshell, is to reduce granularity of detail
+without loss of relevant information and introduction of new imprecisions. In many
+cases, deciding which information to keep and which to aggregate is easy for a human,
+but challenging for an algorithm (see Figure \ref{fig:01}). This is true both for
+studies that are concerned with the street network itself, and for studies that look at
+the polygons enclosed by the street network. Further complexity is added by the fact
+that the level of the input network vary greatly depending on the source and the
+``simplified'' network specification vary depending on the use case.
+
+In this article, we describe one phenomena arising from the usage of
+transportation-focused mapping of urban space and its potential simplification,
+splitting the network-based ``face polygons'' into those representing urban blocks and
+those that do not. The paper is organized as follows: In the next sections, we expand
+on the problem and the key questions, followed by a literature and terminology review.
+We then briefly describe the methodology proposing a cheap computational heuristic
+which allows the classification of ``face polygons'' based on the index capturing their
+shapes and our workflow that we apply to XXX cities across the globe. We then present an
+overview of our results and conclude with a discussion of implications and potential
+further steps.
 
 \subsection*{Problem description}
-Each geospatially encoded street network comes with a certain level of granularity. A detailed look at the polygons enclosed by the edges (street segments) of a given network often reveals artifacts of transport-focused geometry. An illustration is found in Figure \ref{fig:01}. 
+Each geospatially encoded street network comes with a certain level of granularity and a
+focus on specific elements of street space. While all attempt to capture primarily
+connectivity, the resulting graphs can vastly differ. If we use the graph-theory
+terminology, we can encode polygons enclosed by the edges in a planar space representing
+graph faces as ``face polygons''. A detailed look at these polygons for a given network
+often reveals artifacts of transport-focused geometry as illustrated in Figure
+\ref{fig:01}.
 
 \begin{figure}
     \centering
@@ -51,26 +95,100 @@ Each geospatially encoded street network comes with a certain level of granulari
     \label{fig:01}
 \end{figure}
 
-Unlike its grey-colored neighbors, the polygon colored in red is not an urban block enclosed by streets; rather, it appears in the network due to the representation of a bidirectional street as two separate edges, one in each direction of traffic flow. The ``banana’’ in Figure \ref{fig:01} poses a twofold problem. First, for studies concerned with urban form, it introduces a false signal into the distribution of urban shapes and distorts the actual shape of its neighboring polygons. Second, for any study that is concerned with the properties and pattern of the street network rather than with routing, the ``banana’’ introduces a superfluous network edge, and it does so in a frequently inconsistent matter – not for all, but only some bidirectional and/or multilane streets. The extent to which ``banana’’ artifacts distort results depends on the analysis conducted, and cannot be quantified without prior ``banana’’ identification. Thus, no matter whether one is interested in the urban street network or in shapes enclosed by the network, the ``banana’’ should be removed as part of data preprocessing, and replaced by a single network edge. Human manual processing would be unambiguous, but prohibitively costly. We therefore pose the following research question:
+Unlike its grey-colored neighbors, the polygon colored in red is not an urban block
+enclosed by streets; rather, it appears in the network due to the representation of a
+bidirectional street as two separate edges, one in each direction of traffic flow. If
+our goal is to generate  polygons that are representative of urban blocks and inversely
+ensure that the network-based graph is representing the morphological rather than the
+transportation one, we can call these ``invalid face polygons'' as they do not represent
+what is expected. This ``invalid face polygon’’ poses a twofold problem. First, for
+studies concerned with urban form, it introduces a false signal into the distribution of
+urban shapes and distorts the actual shape of its neighboring polygons. Second, for any
+study that is concerned with the properties and pattern of the street network rather
+than with car-based routing, the ``invalid face polygon’’ introduces a superfluous
+network edge, and it does so in a frequently inconsistent matter – not for all, but only
+some bidirectional and/or multilane streets. The extent to which ``invalid face
+polygon’’ artifacts distort results depends on the analysis conducted, and cannot be
+quantified without prior identification of such polygons. Thus, no matter whether one is
+interested in the urban street network or in shapes enclosed by the network, the
+``invalid face polygon’’ should be removed as part of data preprocessing, and replaced
+by a single network edge (note that ``network edge'' refers to the geometric
+representation whilst ``graph edge'' to the topological). Human manual identification of
+erroneous polygons would be unambiguous, but prohibitively costly, not scalable and not
+entirely reproducible. We therefore pose the following research question:
 
 \begin{center}
-\textit{How can ``bananas’’ in an urban street network be computationally identified?}
+\textit{How can be ``invalid face polygons’’ in an urban street network computationally identified?}
 \end{center}
 
-The rest of the paper aims at answering this question and is organized as follows: first, we conduct a brief literature review and outline terminological ``banana'' issues. Then, we propose a simple computational heuristic which allows the identification of ``bananas'' based on the ``banana index''. Next, we apply the proposed method to X functional urban areas (FUAs) across the globe and present the obtained results. We conclude with a discussion and suggestions for future work.
+The rest of the paper aims at answering this question and testing the universality of such
+a method.
 
 \subsection*{Literature review}
 
-First off, a disclaimer: One of the present challenges of ``bananas’’ is the lack of a coherent terminology of the problem description (see section below), which makes it substantially more difficult to conduct a comprehensive literature review on the topic. We therefore apologize for any involuntary omissions of previous work on ``bananas’’, and hope to contribute to a future homogenization of the problem discussion.
+First off, a disclaimer: One of the present challenges of ``invalid face polygon’’ is the lack of a
+coherent terminology of the problem description (see the section below), which makes it
+substantially more difficult to conduct a comprehensive literature review on the topic.
+We therefore apologize for any involuntary omissions of previous work on ``face polygons’’,
+and hope to contribute to a future homogenization of the problem discussion.
 
-Few studies that explicitly tackle the ``bananas'' issue could be identified. Li et al. \cite{li_polygon-based_2014} identify so-called ``multilane polygons'', i.e. adjacent polygons covering a single street area that result from mapping of multiple street lanes, through a SVM (support vector machine) machine learning algorithm that uses five shape parameters as input. Fan et al. \cite{fan_polygon-based_2016} identify ``bananas'' as a data preprocessing issue for their feature matching workflow, and point out that polygons derived from the street network can be classified either as urban block polygons or as road area polygons; the latter are then identified and removed based on the SVM approach developed by Li et al. \cite{li_polygon-based_2014}, as reviewed above. Sanzana et al. \cite{sanzana_decomposition_2018} elaborate on the process of deriving hydrological response units from drainage networks and find that error correction is needed for so called ``bad-shaped polygons''. One of the subcategories of bad-shaped polygons, as classified by the authors, is ``sliver polygons'', formed mainly by roads and footpaths. Grippa et al. \cite{grippa_mapping_2018} classify polygons derived from OpenStreetMap street network data into ``urban blocks'' and ``sliver polygons'' and present a semiautomated workflow, partially in PostGIS, for sliver polygon removal from the data set. Ludwig et al. \cite{ludwig_mapping_2021} take up this approach within the context of land use classification and additionally filter polygons based on a size threshold. Vybornova et al. \cite{vybornova_automated_2022} refer to the network pattern that creates ``bananas’’ as ``parallel edges’’ and present a network shortest path-based approach for their identification, but no solution to effectively remove these from the network. 
+Few studies that explicitly tackle the ``invalid face polygon'' issue could be identified. Li et al.
+\cite{li_polygon-based_2014} identify so-called ``multilane polygons'', i.e. adjacent
+polygons covering a single street area that result from mapping of multiple street
+lanes, through a SVM (support vector machine) machine learning algorithm that uses five
+shape parameters as input. Fan et al. \cite{fan_polygon-based_2016} identify ``invalid face polygon''
+as a data preprocessing issue for their feature matching workflow, and point out that
+polygons derived from the street network can be classified either as urban block
+polygons or as road area polygons; the latter are then identified and removed based on
+the SVM approach developed by Li et al. \cite{li_polygon-based_2014} mentioned above.
+Sanzana et al. \cite{sanzana_decomposition_2018} elaborate on the process of deriving
+hydrological response units from drainage networks and find that error correction is
+needed for so called ``bad-shaped polygons''. One of the subcategories of bad-shaped
+polygons, as classified by the authors, is ``sliver polygons'', formed mainly by roads
+and footpaths. Grippa et al. \cite{grippa_mapping_2018} classify polygons derived from
+OpenStreetMap street network data into ``urban blocks'' and ``sliver polygons'' and
+present a semi-automated workflow, partially in PostGIS, for sliver polygon removal from
+the data set. Ludwig et al. \cite{ludwig_mapping_2021} take up this approach within the
+context of land use classification and additionally filter polygons based on a size
+threshold. Vybornova et al. \cite{vybornova_automated_2022} refer to the network pattern
+that creates ``invalid face polygon’’ as ``parallel edges’’ and present a network shortest path-based
+approach for their identification, but no solution to effectively remove these from the
+network.
 
-Related, but not identical to ``bananas'' is the problem of formalization of street space. In this regard, Peponis et al. \cite{peponis_measuring_2007} conduct an analysis of urban spatial profiles and point out that their input data includes street center lines, but lacks street widths, hence street surfaces are merged into urban blocks. In a methodologically different approach, Hermosilla et al. \cite{hermosilla_using_2014} develop a method to derive so-called urban block related street areas (abbreviated by the authors as ``UBRSA''), defined as the street area surrounding an urban block. This method, however, requires urban block boundaries as input.
+Related, but not identical to ``invalid face polygon'' is the problem of formalization of street
+space. In this regard, Peponis et al. \cite{peponis_measuring_2007} conduct an analysis
+of urban spatial profiles and point out that their input data includes street center
+lines, but lacks street widths, hence street surfaces are merged into urban blocks. In a
+methodologically different approach, Hermosilla et al. \cite{hermosilla_using_2014}
+develop a method to derive so-called urban block related street areas (abbreviated by
+the authors as ``UBRSA''), defined as the street area surrounding an urban block. This
+method, however, requires urban block boundaries as an input.
 
-Lastly, a recent study by Shpuza \cite{shpuza_shape_2022} describes elongated urban blocks that are delimited either by a street or another type of obstacle (e.g. a waterbody), and that contain no buildings, as ``edge blocks''. Edge blocks can be identified as outliers in a so-called shape matrix based on two geometrical parameters, relative distance and directional fragmentation. However, edge blocks represent actual urban blocks rather than scattered parts of the street space.
+Lastly, a recent study by Shpuza \cite{shpuza_shape_2022} describes elongated urban
+blocks that are delimited either by a street or another type of obstacle (e.g. a
+waterbody), and that contain no buildings, as ``edge blocks''. Edge blocks can be
+identified as outliers in a so-called shape matrix based on two geometrical parameters,
+relative distance and directional fragmentation. However, edge blocks represent actual
+urban blocks rather than scattered parts of the street space.
 
 \subsection*{Terminology}
 
-Some recent studies describe the ``banana'' phenomenon as sliver polygons \cite{grippa_mapping_2018, sanzana_decomposition_2018, ludwig_mapping_2021}. However, ``bananas'' arise as consequence of a context-dependent redundancy of mapped line features, while sliver polygons stem from mismatching boundaries in vector overlays of polygon features \cite{goodchild_statistical_1978, fischer_using_1993, delafontaine_assessment_2009}. In addition, ``bananas'' are, in line with our problem definition, confined to the specific context of urban street networks. Therefore, in spite of some degree of geometric similarity between the two, we refrain from applying the term ``sliver polygon'' in the ``bananas’’ context.
-% add further thoughts on terminology - depending on what we will choose as term
-% li: multilane polygons; fan: road area polygons; shpuza: edge blocks; others: sliver polygons...
+Some recent studies describe the ``invalid face polygon'' phenomenon as sliver polygons
+\cite{grippa_mapping_2018, sanzana_decomposition_2018, ludwig_mapping_2021}. However,
+``invalid face polygon'' arise as consequence of a context-dependent redundancy of mapped line
+features, while sliver polygons stem from mismatching boundaries in vector overlays of
+polygon features \cite{goodchild_statistical_1978, fischer_using_1993,
+delafontaine_assessment_2009}. The other suggestions available in
+literature are not suitable either. ``Multilane polygons'' \cite{li_polygon-based_2014}
+or ``parallel edges’’ \cite{vybornova_automated_2022} do not reflect other
+transportation geometries causing the issue (e.g. complex intersections) while
+``bad-shaped polygons'' use a relatively vague term ``bad'' that does not indicate the
+actual issue. In addition, ``invalid face polygon'' are, in line with our problem
+definition, confined to the specific context of urban street networks. Therefore, in
+spite of some degree of geometric similarity between the two, we refrain from applying
+the term ``sliver polygon'' in the ``face polygon’’ context and rather build on more
+generic terminology derived from graph theory.
+
+% add further thoughts on terminology - depending on what we will choose as term li:
+% multilane polygons; fan: road area polygons; shpuza: edge blocks; others: sliver
+% polygons...
