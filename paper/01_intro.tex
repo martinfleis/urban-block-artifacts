@@ -1,8 +1,5 @@
 \section{Introduction}
 \label{sec:intro}
-% TODO - invalid -> artifact
-
-
 % COMMENTED OUT - NOTES:
 % - Importance of street networks for urban analysis
 %     - talk about availability of data, different use cases from transport to
@@ -102,15 +99,14 @@ enclosed by streets; rather, it appears in the network due to the representation
 bidirectional street as two separate edges, one in each direction of traffic flow. If
 our goal is to generate  polygons that are representative of urban blocks and inversely
 ensure that the network-based graph is representing the morphological rather than the
-transportation one, we can call these ``face artifacts'' as they do not represent
-what is expected. This ``face artifact’’ poses a twofold problem. First, for
+transportation one, we can call these ``face artifacts'' as they occur only as a result
+of the data preparation model not suited for the purpose. This ``face artifact’’ poses a twofold problem. First, for
 studies concerned with urban form, it introduces a false signal into the distribution of
 urban shapes and distorts the actual shape of its neighboring polygons. Second, for any
 study that is concerned with the properties and pattern of the street network rather
 than with car-based routing, the ``face artifact’’ introduces a superfluous
 network edge, and it does so in a frequently inconsistent matter – not for all, but only
-some bidirectional and/or multilane streets. The extent to which ``invalid face
-polygon’’ artifacts distort results depends on the analysis conducted, and cannot be
+some bidirectional and/or multilane streets. The extent to which ``face artifacts’’ distort results depends on the analysis conducted, and cannot be
 quantified without prior identification of such polygons. Thus, no matter whether one is
 interested in the urban street network or in shapes enclosed by the network, the
 ``face artifact’’ should be removed as part of data preprocessing, and replaced
@@ -128,7 +124,7 @@ a method.
 
 \subsection*{Literature review}
 
-First off, a disclaimer: One of the present challenges of ``face artifact’’ is the lack of a
+One of the present challenges of ``face artifact’’ is the lack of a
 coherent terminology of the problem description (see the section below), which makes it
 substantially more difficult to conduct a comprehensive literature review on the topic.
 We therefore apologize for any involuntary omissions of previous work on ``face polygons’’,
