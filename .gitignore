@@ -130,3 +130,5 @@ dmypy.json
 
 .DS_Store
 code/cache/
+matplotlibrc
+classic.mplstyle
