@@ -134,7 +134,7 @@ matplotlibrc
 classic.mplstyle
 
 # latex compilation files
-*.aux
+paper/manuscript.aux
 *.bbl
 *.blg
 *.log
