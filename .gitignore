@@ -132,3 +132,11 @@ dmypy.json
 code/cache/
 matplotlibrc
 classic.mplstyle
+
+# latex compilation files
+paper/manuscript.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
