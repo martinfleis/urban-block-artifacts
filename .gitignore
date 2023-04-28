@@ -143,4 +143,5 @@ paper/manuscript.aux
 *.synctex.gz
 
 # large files used for validation
-*/buildings
+data/buildings
+data/validation
