@@ -455,7 +455,6 @@ def _get_line(pt1, pt2, tick_length):
 
 
 def highway_fix(gdf, tick_length, allowed_error, tolerance):
-
     high = gdf[gdf.highway.astype(str) == "motorway"]
 
     Q = Queen.from_dataframe(high, silence_warnings=True)
