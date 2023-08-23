@@ -1,8 +1,8 @@
-# bananas
+# A shape-based heuristic for the detection of urban block artifacts
 
-This repository contains complete reproducible workflow for a research paper "*Bananas*".
+This repository contains complete reproducible workflow for a research paper "A shape-based heuristic for the detection of urban block artifacts".
 
-> Fleischmann M, Vybornova A (2022) Bananas. The Journal. DOI: xxx.
+> Fleischmann M, Vybornova A (2023) A shape-based heuristic for the detection of urban block artifacts. The Journal. DOI: xxx.
 
 Martin Fleischmann<sup>1</sup>, Anastassia Vybornova<sup>2</sup>
 
@@ -12,9 +12,17 @@ Martin Fleischmann<sup>1</sup>, Anastassia Vybornova<sup>2</sup>
 
 ## Repository structure
 
-The repository contains `code` and `paper` folders, where the former one includes fully reproducible Jupyter notebooks and Python code used within the research and the latter contains LaTeX source file for the manuscript.
+The folder `code` contains fully reproducible Jupyter notebooks (to be run in sequential order : `01`, then `02` etc.) and Python code used within the research.
 
-## Code and data
+The folder `data` contains:
+* the file `sample.parquet`, generated within the notebook `01_download`, with metada on all 131 functional urban areas (FUAs) used in the analysis
+* one subfolder `/data/<FUA_ID>/` for each FUA, with corresponding street network data and polygon shapes
+
+The folder `plots` contains all figures produced in the analysis and used in the paper.
+
+The folder `results` contains results on: shape metrics correlations; face artifact index thresholds for all 131 FUAs; and computational efficiency.
+
+## Reproducibility
 
 The research has been executed within a Docker container `darribas/gds_py:8.0`.
 
