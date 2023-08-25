@@ -6,7 +6,7 @@ This repository contains complete reproducible workflow for a research paper "A 
 
 Martin Fleischmann<sup>1</sup>, Anastassia Vybornova<sup>2</sup>
 
-1 Geographic Data Science Lab, Department of Geography and Planning, University of Liverpool, m.fleischmann@liverpool.ac.uk.
+1 Department of Social Geography and Regional Development, Charles University, Czechia, martin.fleischmann@natur.cuni.cz
 
 2 NEtworks, Data and Society (NERDS), Computer Science Department, IT University of Copenhagen, anvy@itu.dk
 
@@ -24,14 +24,14 @@ The folder `results` contains results on: shape metrics correlations; face artif
 
 ## Reproducibility
 
-The research has been executed within a Docker container `darribas/gds_py:8.0`.
+The research has been executed within a Docker container `darribas/gds_py:9.0`.
 
 To reproduce the analysis in the MyBinder cloud environment: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/) - this does not work yet but will.
 
 To reproduce the analysis locally, download or clone the repository or its archive, navigate to the folder (`cd code`) and start `docker` using the following command:
 
 ```
-docker run --rm -ti -p 8888:8888 -v ${PWD}:/home/jovyan/work darribas/gds_py:8.0
+docker run --rm -ti -p 8888:8888 -v ${PWD}:/home/jovyan/work darribas/gds_py:9.0
 ```
 
 That will start Jupyter Lab session on `localhost:8888` and mount the current working directory to `work` folder within the container.
