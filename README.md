@@ -26,8 +26,6 @@ The folder `results` contains results on: shape metrics correlations; face artif
 
 The research has been executed within a Docker container `darribas/gds_py:9.0`.
 
-To reproduce the analysis in the MyBinder cloud environment: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/) - this does not work yet but will.
-
 To reproduce the analysis locally, download or clone the repository or its archive, navigate to the folder (`cd code`) and start `docker` using the following command:
 
 ```
