@@ -1,8 +1,8 @@
 # A shape-based heuristic for the detection of urban block artifacts
 
-This repository contains complete reproducible workflow for a research paper "A shape-based heuristic for the detection of urban block artifacts".
+This repository contains complete reproducible workflow for a forthcoming research paper "A shape-based heuristic for the detection of urban block artifacts", currently available as [arxiv preprint](https://arxiv.org/abs/2309.00438). 
 
-> Fleischmann M, Vybornova A (2023) A shape-based heuristic for the detection of urban block artifacts. The Journal. DOI: xxx.
+> Fleischmann M, Vybornova A (2024) A shape-based heuristic for the detection of urban block artifacts. arXiv: 10.48550/arXiv.2309.00438
 
 Martin Fleischmann<sup>1</sup>, Anastassia Vybornova<sup>2</sup>
 
